@@ -44,8 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee updateEmployee(Employee employee,long id) {
-        Employee existingEmployee = employeeRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("Employee","id",id));
+        Employee existingEmployee = getEmployeeById(id);
         existingEmployee.setFirstName(employee.getFirstName());
         existingEmployee.setLastName(employee.getLastName());
         existingEmployee.setEmail(employee.getEmail());
@@ -54,8 +53,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void deleteEmployeeById(Long id) {
-        Employee existingEmployee = employeeRepository.findById(id).orElseThrow(
-                () -> new ResourceNotFoundException("Employee","id",id));
+        Employee existingEmployee = getEmployeeById(id);
         employeeRepository.delete(existingEmployee);
     }
+
 }
