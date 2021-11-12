@@ -51,4 +51,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         existingEmployee.setEmail(employee.getEmail());
         return employeeRepository.save(existingEmployee); //will update existing based on id
     }
+
+    @Override
+    public void deleteEmployeeById(Long id) {
+        Employee existingEmployee = employeeRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Employee","id",id));
+        employeeRepository.delete(existingEmployee);
+    }
 }
