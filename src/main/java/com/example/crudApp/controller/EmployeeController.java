@@ -35,4 +35,11 @@ public class EmployeeController {
     public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id){
         return new ResponseEntity<>(employeeService.getEmployeeById(id),HttpStatus.FOUND);
     }
+
+    // https://localhost:8080/api/employees/1
+    // employee object is in the body while id is in the url
+    @PutMapping("{id}")
+    public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee, @PathVariable("id") Long id){
+        return new ResponseEntity<>(employeeService.updateEmployee(employee,id),HttpStatus.ACCEPTED);
+    }
 }
