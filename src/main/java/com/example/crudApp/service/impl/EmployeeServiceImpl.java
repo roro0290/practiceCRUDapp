@@ -5,6 +5,8 @@ import com.example.crudApp.repo.EmployeeRepository;
 import com.example.crudApp.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 //a class which implements the Employee Service interface
 //before implementing, we need to inject the employeeRepository dependency
 @Service
@@ -19,5 +21,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeRepository.findAll();
     }
 }
