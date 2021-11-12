@@ -31,4 +31,8 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeService.getAllEmployees(),HttpStatus.OK);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id){
+        return new ResponseEntity<>(employeeService.getEmployeeById(id),HttpStatus.FOUND);
+    }
 }
