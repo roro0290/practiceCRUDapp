@@ -13,7 +13,7 @@ This class will help to create the Spring Security FILTER CHAIN
 (hover over it, and you'll see that it already by default contains @Configuration)
 so NO NEED @Configuration to tell that it is a configuration file
  */
-@EnableWebSecurity
+@EnableWebSecurity(debug=true)
 public class MySpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
 }
